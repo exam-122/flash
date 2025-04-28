@@ -1,0 +1,41 @@
+1	Write a program for image enhancement
+img = imread('peppers.png');
+bright_img = img + 50; % Increase brightness
+
+imshowpair(img, bright_img, 'montage');
+title('Original Image (Left) and Brightened Image (Right)');
+
+2	Write a program for image compression
+img = imread('peppers.png');
+small_img = imresize(img, 0.5); % Compress (reduce size)
+big_img = imresize(small_img, 2); % Resize back to original
+
+imshowpair(img, big_img, 'montage');
+title('Original Image (Left) and Compressed-Reconstructed Image (Right)');
+
+3	Write a program for color image processing
+img = imread('peppers.png');
+
+red = img(:,:,1);
+green = img(:,:,2);
+blue = img(:,:,3);
+
+subplot(2,2,1); imshow(img); title('Original');
+subplot(2,2,2); imshow(red); title('Red Channel');
+subplot(2,2,3); imshow(green); title('Green Channel');
+subplot(2,2,4); imshow(blue); title('Blue Channel');
+4	Write a program for image segmentation
+img = imread('cameraman.tif');
+threshold = 100;
+binary_img = img > threshold;
+
+imshow(binary_img);
+title('Segmented Image (Thresholding)');
+
+5	Write a program for image morphology
+img = imread('text.png');
+se = strel('square', 3); % Square structuring element
+dilated_img = imdilate(img, se);
+
+imshowpair(img, dilated_img, 'montage');
+title('Original Image (Left) and Dilated Image (Right)');
